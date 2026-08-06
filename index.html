@@ -4,18 +4,16 @@
   <meta charset="UTF-8">
   <title>Kapenguria School</title>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* Hero Carousel Styling */
-    .carousel {position:relative;overflow:hidden;height:500px;}
-    .slides {display:flex;transition:transform 1s ease-in-out;}
-    .slide {min-width:100%;height:500px;position:relative;}
-    .slide img {width:100%;height:500px;object-fit:cover;}
-    .caption {position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
-              background:rgba(0,100,0,0.7);color:#FFD700;padding:10px 20px;border-radius:5px;}
-    .nav-btn {position:absolute;top:50%;transform:translateY(-50%);background:#FFD700;color:#004d00;
-              border:none;padding:10px;cursor:pointer;font-weight:bold;}
-    .prev {left:20px;} .next {right:20px;}
-  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W8LFZ3WFD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9W8LFZ3WFD');
+  </script>
 </head>
 <body>
   <!-- Navigation -->
@@ -37,49 +35,54 @@
     </nav>
   </header>
 
-  <!-- Hero Carousel -->
-  <section class="carousel">
-    <div class="slides">
-      <div class="slide">
-        <img src="https://i.imgur.com/hn1nntI.jpg" alt="School Hero 1">
-        <div class="caption">Shaping Future Leaders</div>
-      </div>
-      <div class="slide">
-        <img src="https://i.imgur.com/45P4QUM.jpg" alt="School Hero 2">
-        <div class="caption">Excellence • Discipline • Success</div>
-      </div>
-      <div class="slide">
-        <img src="https://i.imgur.com/JXKQy4t.jpg" alt="School Hero 3">
-        <div class="caption">Nurturing Talent Beyond Academics</div>
-      </div>
-      <div class="slide">
-        <img src="https://i.imgur.com/axo829n.jpg" alt="School Hero 4">
-        <div class="caption">Empowering Students for Tomorrow</div>
-      </div>
-      <div class="slide">
-        <img src="https://i.imgur.com/YvYEh6N.jpg" alt="School Hero 5">
-        <div class="caption">Holistic Growth and Success</div>
-      </div>
-    </div>
-    <button class="nav-btn prev" onclick="moveSlide(-1)">❮</button>
-    <button class="nav-btn next" onclick="moveSlide(1)">❯</button>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Shaping Future Leaders</h1>
+    <p>Excellence • Discipline • Success</p>
+    <button>Learn More</button>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2026 Kapenguria School | Website developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
-  </footer>
+  <!-- Quick Links -->
+  <section class="card">
+    <h2>Quick Links</h2>
+    <ul>
+      <li><a href="academics.html">Academics – Learn More</a></li>
+      <li><a href="admissions.html">Admissions – Apply Now</a></li>
+      <li><a href="calendar.html">School Calendar – View Calendar</a></li>
+      <li><a href="news.html">News & Updates – Read More</a></li>
+    </ul>
+  </section>
 
-  <!-- Carousel Script -->
-  <script>
-    let index = 0;
-    const slides = document.querySelector('.slides');
-    const total = document.querySelectorAll('.slide').length;
-    function moveSlide(step) {
-      index = (index + step + total) % total;
-      slides.style.transform = `translateX(-${index * 100}%)`;
-    }
-    setInterval(() => moveSlide(1), 5000);
-  </script>
+  <!-- Welcome Message -->
+  <section class="card">
+    <h2>Welcome to Kapenguria School</h2>
+    <p><em>A Tradition of Excellence in Education</em></p>
+    <p>Kapenguria School is dedicated to nurturing young minds and shaping future leaders through holistic education and strong values.</p>
+    <button>Read More About Us</button>
+  </section>
+
+  <!-- Latest News -->
+  <section class="card">
+    <h2>Latest News</h2>
+    <ul>
+      <li><strong>Sports Day 2024 – Coming Up!</strong> April 19, 2024</li>
+      <li><strong>Term 1 Exams Schedule</strong> April 5, 2024</li>
+      <li><strong>School Trip to Nairobi Highlights</strong> March 25, 2024</li>
+    </ul>
+  </section>
+
+  <!-- Gallery -->
+  <section class="card">
+    <h2>Photo & Video Gallery</h2>
+    <button>View Gallery</button>
+  </section>
+
+  <!-- Contact -->
+  <footer>
+    <p><strong>Address:</strong> P.O. Box 123, Kapenguria, Kenya</p>
+    <p><strong>Phone:</strong> +254 700 123 456</p>
+    <p><strong>Email:</strong> info@kapenguriaschool.ac.ke</p>
+    <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
+  </footer>
 </body>
 </html>
