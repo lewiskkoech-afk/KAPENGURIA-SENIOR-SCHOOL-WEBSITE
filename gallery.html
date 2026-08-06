@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery - Kapenguria School</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .gallery {display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+    .gallery img {width:200px;height:150px;object-fit:cover;cursor:pointer;border:3px solid #006400;}
+    .lightbox {display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);}
+    .lightbox img {max-width:90%;max-height:90%;margin:auto;display:block;}
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="co-curricular.html">Co-Curricular</a></li>
+        <li><a href="students.html">Students' Arena</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="rules.html">School Rules</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Gallery Section -->
+  <section class="card">
+    <h2>School Gallery</h2>
+    <div class="gallery">
+      <img src="images/Picture1.png" alt="School Photo 1" onclick="openLightbox(this.src)">
+      <img src="images/Picture2.png" alt="School Photo 2" onclick="openLightbox(this.src)">
+      <img src="images/Picture3.png" alt="School Photo 3" onclick="openLightbox(this.src)">
+      <img src="images/Picture4.jpg" alt="School Photo 4" onclick="openLightbox(this.src)">
+      <img src="images/Picture5.png" alt="School Photo 5" onclick="openLightbox(this.src)">
+      <img src="images/Picture6.png" alt="School Photo 6" onclick="openLightbox(this.src)">
+      <img src="images/Picture7.png" alt="School Photo 7" onclick="openLightbox(this.src)">
+      <img src="images/Picture8.png" alt="School Photo 8" onclick="openLightbox(this.src)">
+      <img src="images/Picture9.png" alt="School Photo 9" onclick="openLightbox(this.src)">
+      <img src="images/Picture10.png" alt="School Photo 10" onclick="openLightbox(this.src)">
+      <img src="images/Picture11.png" alt="School Photo 11" onclick="openLightbox(this.src)">
+      <img src="images/Picture12.jpg" alt="School Photo 12" onclick="openLightbox(this.src)">
+      <img src="images/Picture13.jpg" alt="School Photo 13" onclick="openLightbox(this.src)">
+      <img src="images/Picture14.png" alt="School Photo 14" onclick="openLightbox(this.src)">
+      <img src="images/Picture15.jpg" alt="School Photo 15" onclick="openLightbox(this.src)">
+      <img src="images/Picture16.jpg" alt="School Photo 16" onclick="openLightbox(this.src)">
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="">
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Kapenguria School | Website developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
+  </footer>
+
+  <!-- Lightbox Script -->
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').style.display = 'block';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
