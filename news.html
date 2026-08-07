@@ -4,25 +4,26 @@
   <meta charset="UTF-8">
   <title>News - Kapenguria School</title>
   <link rel="stylesheet" href="style.css">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W8LFZ3WFD"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9W8LFZ3WFD');</script>
+  <style>
+    .ticker {overflow:hidden;white-space:nowrap;background:#006400;color:#FFD700;padding:10px;}
+    .ticker span {display:inline-block;padding-right:50px;animation:scroll 15s linear infinite;}
+    @keyframes scroll {0%{transform:translateX(100%);}100%{transform:translateX(-100%);}}
+  </style>
 </head>
 <body>
-  <header><nav><ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="news.html">News</a></li>
-  </ul></nav></header>
+  <header><nav>…</nav></header>
+
+  <div class="ticker">
+    <span>🏆 Kapenguria School wins regional football tournament!</span>
+    <span>🎓 KCSE results show outstanding performance in sciences.</span>
+    <span>📢 New library wing inaugurated by the principal.</span>
+  </div>
 
   <section class="card">
     <h2>Latest News</h2>
-    <ul>
-      <li><strong>Sports Day 2024</strong> – April 19, 2024</li>
-      <li><strong>Term 1 Exams</strong> – April 5, 2024</li>
-      <li><strong>School Trip to Nairobi</strong> – March 25, 2024</li>
-    </ul>
+    <p>Stay updated with the latest events and achievements at Kapenguria School.</p>
   </section>
 
   <footer><p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p></footer>
 </body>
 </html>
-
