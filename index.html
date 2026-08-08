@@ -3,15 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Kapenguria School</title>
-  <link rel="stylesheet" href="style.css"> <!-- Maroon & Cream theme -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i.imgur.com/tyjm8K4.png">
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
   <style>
-    /* Slideshow styling */
+    /* Ensure slideshow shows first image */
     .slides img { display: none; }
     .slides img.active { display: block; }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
   <header>
     <nav>
       <ul>
@@ -47,14 +53,14 @@
     </nav>
   </header>
 
-  <!-- Hero Slideshow -->
+  <!-- =========================
+       HERO SECTION
+  ========================== -->
   <section class="hero">
     <div class="slides">
-      <!-- Main Imgur hero image -->
+      <!-- Verified Imgur images only -->
       <img src="https://i.imgur.com/YvYEh6N.jpg" alt="Kapenguria School Hero" class="active">
-      <!-- Secondary hero image -->
       <img src="https://i.imgur.com/edsDFaW.jpg" alt="School Campus">
-      <!-- Removed broken/unused images -->
     </div>
     <div class="hero-text">
       <h1>Shaping Future Leaders</h1>
@@ -63,32 +69,48 @@
     </div>
   </section>
 
-  <!-- Announcements -->
+  <!-- =========================
+       ANNOUNCEMENTS
+  ========================== -->
   <section class="ticker">
     <div class="ticker-text">Sports Day – Sept 15 | Exams – Aug 20 | Trip – July 30</div>
   </section>
 
-  <!-- Principal’s Message -->
+  <!-- =========================
+       PRINCIPAL’S MESSAGE
+  ========================== -->
   <section class="card">
     <h2>Principal’s Message</h2>
     <p>Welcome to Kapenguria School. We are committed to discipline, excellence, and success in all areas of student life.</p>
   </section>
 
-  <!-- Motto & Values -->
-  <section class="card"><h2>Our Motto</h2><p>Excellence • Discipline • Success</p></section>
-  <section class="card"><h2>Core Values</h2><p>Integrity, Responsibility, Teamwork, Leadership.</p></section>
+  <!-- =========================
+       MOTTO & VALUES
+  ========================== -->
+  <section class="card">
+    <h2>Our Motto</h2>
+    <p>Excellence • Discipline • Success</p>
+  </section>
 
-  <!-- Gallery Preview -->
+  <section class="card">
+    <h2>Core Values</h2>
+    <p>Integrity, Responsibility, Teamwork, Leadership.</p>
+  </section>
+
+  <!-- =========================
+       GALLERY PREVIEW
+  ========================== -->
   <section class="gallery">
     <h2>Photo Gallery</h2>
     <div class="gallery-grid">
-      <!-- Only working Imgur links kept -->
       <img src="https://i.imgur.com/YvYEh6N.jpg" alt="School Event">
       <img src="https://i.imgur.com/edsDFaW.jpg" alt="Campus Grounds">
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
   <footer>
     <p><strong>Address:</strong> P.O. Box 123, Kapenguria, Kenya</p>
     <p><strong>Phone:</strong> +254 700 123 456</p>
@@ -96,7 +118,9 @@
     <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
   </footer>
 
-  <!-- Slideshow Script -->
+  <!-- =========================
+       SLIDESHOW SCRIPT
+  ========================== -->
   <script>
     let current = 0;
     const slides = document.querySelectorAll('.slides img');
@@ -114,3 +138,4 @@
   </script>
 </body>
 </html>
+
