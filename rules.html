@@ -3,27 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <title>School Rules - Kapenguria School</title>
-  <link rel="stylesheet" href="style.css">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W8LFZ3WFD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9W8LFZ3WFD');
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i.imgur.com/tyjm8K4.png">
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header><nav><ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="rules.html">School Rules</a></li>
-  </ul></nav></header>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="co-curricular.html">Co-Curricular</a></li>
+        <li><a href="students.html">Students’ Arena</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="rules.html">School Rules</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <section class="card">
-    <h2>School Rules</h2>
-    <p>Kapenguria School emphasizes discipline and respect. Students are expected to follow all school rules regarding attendance, uniform, punctuality, and conduct.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="slides">
+      <img src="https://i.imgur.com/YvYEh6N.jpg" alt="School Rules Hero" class="active">
+      <img src="https://i.imgur.com/edsDFaW.jpg" alt="Discipline at Kapenguria">
+    </div>
+    <div class="hero-text">
+      <h1>School Rules</h1>
+      <p>Discipline • Excellence • Success</p>
+    </div>
   </section>
 
-  <footer><p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p></footer>
+  <!-- Rules Section -->
+  <section class="card">
+    <h2>General Conduct</h2>
+    <ul>
+      <li>Students must uphold discipline, respect, and integrity at all times.</li>
+      <li>Punctuality is mandatory for all lessons, assemblies, and school events.</li>
+      <li>Respect for teachers, staff, and fellow students is expected.</li>
+      <li>Bullying, fighting, or harassment of any kind is strictly prohibited.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Academic Rules</h2>
+    <ul>
+      <li>Students must attend all classes and complete assignments on time.</li>
+      <li>Cheating in examinations or tests will result in disciplinary action.</li>
+      <li>Library books must be returned on time and handled with care.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Dress Code</h2>
+    <ul>
+      <li>Students must wear the prescribed school uniform at all times.</li>
+      <li>Games kits and tracksuits are compulsory during sports activities.</li>
+      <li>Neat grooming and personal hygiene are expected daily.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Boarding Rules</h2>
+    <ul>
+      <li>Silence must be observed in dormitories after lights out.</li>
+      <li>Students must keep their dormitories clean and orderly.</li>
+      <li>Unauthorized items such as radios, phones, or sharp objects are not allowed.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Disciplinary Measures</h2>
+    <p>Any violation of school rules will attract disciplinary action, which may include warnings, detention, suspension, or expulsion depending on the severity of the offense.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
+  </footer>
+
+  <!-- Slideshow Script -->
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slides img');
+    function showSlide(index) {
+      slides.forEach((img, i) => {
+        img.classList.remove('active');
+        if (i === index) img.classList.add('active');
+      });
+    }
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+    setInterval(nextSlide, 4000);
+  </script>
 </body>
 </html>
-
