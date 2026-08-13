@@ -3,22 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <title>Co-Curricular - Kapenguria School</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i.imgur.com/tyjm8K4.png">
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W8LFZ3WFD"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9W8LFZ3WFD');</script>
 </head>
 <body>
-  <header><nav><ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="co-curricular.html">Co-Curricular</a></li>
-  </ul></nav></header>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="co-curricular.html">Co-Curricular</a></li>
+        <li><a href="students.html">Students’ Arena</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="rules.html">School Rules</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <section class="card">
-    <h2>Co-Curricular Activities</h2>
-    <p>We encourage students to participate in sports, music, drama, and clubs to develop talents beyond academics.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="slides">
+      <img src="https://i.imgur.com/YvYEh6N.jpg" alt="Co-Curricular Hero" class="active">
+      <img src="https://i.imgur.com/edsDFaW.jpg" alt="Sports and Clubs">
+    </div>
+    <div class="hero-text">
+      <h1>Co-Curricular Activities</h1>
+      <p>Developing talents • Building teamwork • Inspiring leadership</p>
+    </div>
   </section>
 
-  <footer><p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p></footer>
+  <!-- Sports -->
+  <section class="card">
+    <h2>Sports</h2>
+    <p>Kapenguria School has a proud tradition of sporting excellence. Students participate in:</p>
+    <ul>
+      <li>Football – County Champions 2026</li>
+      <li>Athletics – Gold medalists in regional competitions</li>
+      <li>Basketball – National playoff qualifiers</li>
+      <li>Volleyball – Strong contenders in inter-school tournaments</li>
+    </ul>
+  </section>
+
+  <!-- Clubs & Societies -->
+  <section class="card">
+    <h2>Clubs & Societies</h2>
+    <p>Our clubs and societies nurture talents and leadership skills:</p>
+    <ul>
+      <li>Science & Innovation Club – National Science Congress finalists</li>
+      <li>Debate & Drama Club – County Debate Champions</li>
+      <li>Environmental Conservation Club – Tree planting and clean-up drives</li>
+      <li>Christian Union & Young Catholic Students – Spiritual growth and fellowship</li>
+    </ul>
+  </section>
+
+  <!-- Arts & Culture -->
+  <section class="card">
+    <h2>Arts & Culture</h2>
+    <p>Students showcase creativity and cultural heritage through:</p>
+    <ul>
+      <li>Drama festivals – Award-winning performances</li>
+      <li>Music – Choir and band presentations at county level</li>
+      <li>Traditional dance – Preserving local culture and identity</li>
+    </ul>
+  </section>
+
+  <!-- Leadership Activities -->
+  <section class="card">
+    <h2>Leadership Activities</h2>
+    <p>Leadership is cultivated through active participation in:</p>
+    <ul>
+      <li>Student Council – Representing learners’ voices</li>
+      <li>Prefect System – Discipline and responsibility</li>
+      <li>Peer Mentorship – Guiding fellow students academically and socially</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
+  </footer>
+
+  <!-- Slideshow Script -->
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slides img');
+    function showSlide(index) {
+      slides.forEach((img, i) => {
+        img.classList.remove('active');
+        if (i === index) img.classList.add('active');
+      });
+    }
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+    setInterval(nextSlide, 4000);
+  </script>
 </body>
 </html>
-
