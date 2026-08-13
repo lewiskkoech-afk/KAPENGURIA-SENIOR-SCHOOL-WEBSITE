@@ -3,36 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <title>Contact - Kapenguria School</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i.imgur.com/tyjm8K4.png">
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W8LFZ3WFD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9W8LFZ3WFD');
-  </script>
 </head>
 <body>
+  <!-- Navigation -->
   <header>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="co-curricular.html">Co-Curricular</a></li>
+        <li><a href="students.html">Students’ Arena</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="rules.html">School Rules</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="news.html">News</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="card">
-    <h2>Contact Us</h2>
-    <p><strong>Address:</strong> P.O. Box 343-30600, Kapenguria</p>
-    <p><strong>Phone:</strong> +254 743 343 343 </p>
-    <p><strong>Email:</strong> kapeboys@gmail.com</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="slides">
+      <img src="https://i.imgur.com/YvYEh6N.jpg" alt="Contact Hero" class="active">
+      <img src="https://i.imgur.com/edsDFaW.jpg" alt="School Campus">
+    </div>
+    <div class="hero-text">
+      <h1>Contact Us</h1>
+      <p>We’re here to help you reach Kapenguria School</p>
+    </div>
   </section>
 
+  <!-- Contact Information -->
+  <section class="card">
+    <h2>Get in Touch</h2>
+    <p><strong>Address:</strong> P.O. Box 123, Kapenguria, Kenya</p>
+    <p><strong>Phone:</strong> +254 700 123 456</p>
+    <p><strong>Email:</strong> info@kapenguriaschool.ac.ke</p>
+  </section>
+
+  <!-- Map Directions -->
+  <section class="card">
+    <h2>Map Directions</h2>
+    <p>Directions from Makutano (West Pokot town) to Kapenguria School:</p>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.454433765974!2d35.09492378174004!3d1.253446779753639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1782361001e77235%3A0x5b1dfd04a77bf40e!2sKapenguria%20School!5e0!3m2!1sen!2ske!4v1786257947619!5m2!1sen!2ske" 
+      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
+      referrerpolicy="strict-origin-when-cross-origin">
+    </iframe>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
   </footer>
+
+  <!-- Slideshow Script -->
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slides img');
+    function showSlide(index) {
+      slides.forEach((img, i) => {
+        img.classList.remove('active');
+        if (i === index) img.classList.add('active');
+      });
+    }
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+    setInterval(nextSlide, 4000);
+  </script>
 </body>
 </html>
+
