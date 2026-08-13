@@ -3,38 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <title>Academics - Kapenguria School</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i.imgur.com/tyjm8K4.png">
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W8LFZ3WFD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9W8LFZ3WFD');
-  </script>
 </head>
 <body>
+  <!-- Navigation -->
   <header>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
         <li><a href="academics.html">Academics</a></li>
+        <li><a href="co-curricular.html">Co-Curricular</a></li>
+        <li><a href="students.html">Students’ Arena</a></li>
         <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="rules.html">School Rules</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
         <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="card">
-    <h2>Academic Excellence</h2>
-    <p>Kapenguria School offers a wide range of subjects aligned with the Kenyan curriculum, preparing students for KCSE and beyond.</p>
-    <p>Our dedicated teachers ensure students achieve excellence in sciences, humanities, and technical subjects.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="slides">
+      <img src="https://i.imgur.com/YvYEh6N.jpg" alt="Academics Hero" class="active">
+      <img src="https://i.imgur.com/edsDFaW.jpg" alt="Classroom Learning">
+    </div>
+    <div class="hero-text">
+      <h1>Academics</h1>
+      <p>Excellence in Learning • Discipline in Study • Success in Results</p>
+    </div>
   </section>
 
+  <!-- Academic Departments -->
+  <section class="card">
+    <h2>Academic Departments</h2>
+    <p>Kapenguria School offers a wide range of subjects across key departments:</p>
+    <ul>
+      <li>Sciences – Physics, Chemistry, Biology</li>
+      <li>Mathematics – Pure and Applied</li>
+      <li>Languages – English, Kiswahili, French</li>
+      <li>Humanities – History, Geography, CRE</li>
+      <li>Technical Subjects – Business Studies, Agriculture, Computer Studies</li>
+    </ul>
+  </section>
+
+  <!-- Curriculum -->
+  <section class="card">
+    <h2>Curriculum</h2>
+    <p>The school follows the Kenyan 8-4-4 curriculum, preparing students for KCSE examinations. Emphasis is placed on both academic excellence and holistic development, ensuring learners are well-rounded and ready for future challenges.</p>
+  </section>
+
+  <!-- Performance -->
+  <section class="card">
+    <h2>Academic Performance</h2>
+    <p>Kapenguria School has consistently ranked among the top schools in West Pokot County. Recent highlights include:</p>
+    <ul>
+      <li>KCSE 2025 mean score of 9.2 (B+).</li>
+      <li>Over 80% of candidates qualifying for university admission.</li>
+      <li>Top performers in Mathematics and Sciences at county level.</li>
+    </ul>
+  </section>
+
+  <!-- Support Programs -->
+  <section class="card">
+    <h2>Support Programs</h2>
+    <p>To enhance academic success, the school provides:</p>
+    <ul>
+      <li>Evening and weekend remedial classes.</li>
+      <li>Mentorship programs led by alumni and teachers.</li>
+      <li>Access to a modern library and ICT lab.</li>
+      <li>Guidance and counseling services for students.</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
   </footer>
+
+  <!-- Slideshow Script -->
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slides img');
+    function showSlide(index) {
+      slides.forEach((img, i) => {
+        img.classList.remove('active');
+        if (i === index) img.classList.add('active');
+      });
+    }
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+    setInterval(nextSlide, 4000);
+  </script>
 </body>
 </html>
+
+
 
