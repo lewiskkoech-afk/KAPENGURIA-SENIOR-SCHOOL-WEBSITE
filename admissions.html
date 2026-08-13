@@ -3,37 +3,132 @@
 <head>
   <meta charset="UTF-8">
   <title>Admissions - Kapenguria School</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i.imgur.com/tyjm8K4.png">
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W8LFZ3WFD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9W8LFZ3WFD');
-  </script>
 </head>
 <body>
+  <!-- Navigation -->
   <header>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="co-curricular.html">Co-Curricular</a></li>
+        <li><a href="students.html">Students’ Arena</a></li>
         <li><a href="admissions.html">Admissions</a></li>
         <li><a href="rules.html">School Rules</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="news.html">News</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="card">
-    <h2>Admissions</h2>
-    <p>We welcome new students who are committed to excellence and discipline. Admission is based on KCPE results and interviews.</p>
-    <p>For more details, contact our admissions office at <strong>info@kapenguriaschool.ac.ke</strong>.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="slides">
+      <img src="https://i.imgur.com/YvYEh6N.jpg" alt="Admissions Hero" class="active">
+      <img src="https://i.imgur.com/edsDFaW.jpg" alt="New Students">
+    </div>
+    <div class="hero-text">
+      <h1>Admissions</h1>
+      <p>Join Kapenguria School • Excellence • Discipline • Success</p>
+    </div>
   </section>
 
+  <!-- Admission Requirements -->
+  <section class="card">
+    <h2>Admission Requirements</h2>
+    <ul>
+      <li>Duly filled admission letter</li>
+      <li>Certified KCPE Results Slip and recommendation letter</li>
+      <li>School Leaving Certificate (certified)</li>
+      <li>Original & photocopy of Birth Certificate</li>
+      <li>Three passport size photographs</li>
+      <li>Four Figure Mathematical Tables (KNEC)</li>
+      <li>Bible (Revised Standard Version)</li>
+      <li>Golden Bells hymn book</li>
+      <li>Ksh. 250/= for Identity Card</li>
+      <li>Kamusi TUKI – Toleo la 3</li>
+      <li>Dictionary (latest edition)</li>
+      <li>Five spring files</li>
+    </ul>
+  </section>
+
+  <!-- Personal Effects -->
+  <section class="card">
+    <h2>Personal Effects</h2>
+    <ul>
+      <li>Strong metallic box with padlocks</li>
+      <li>4-inch high density mattress (blue)</li>
+      <li>Two blankets and two light green bed sheets</li>
+      <li>Bed cover (light green)</li>
+      <li>Grey plastic washing bucket</li>
+      <li>Canvas shoes (Black Bata Bullet)</li>
+      <li>Black leather shoes (Toughees)</li>
+      <li>Utensils available at school (Ksh. 400/=)</li>
+      <li>Blue mosquito net</li>
+      <li>Pyjama suit (plain colour)</li>
+      <li>Slippers (Bata, not Akala)</li>
+      <li>Six undergarments</li>
+      <li>Comb, mirror, handkerchiefs</li>
+      <li>Soap (washing & bathing) + scrub</li>
+      <li>Toothpaste & brush</li>
+      <li>Towel</li>
+      <li>Five rolls of tissue paper</li>
+      <li>Brush & shoe polish</li>
+    </ul>
+  </section>
+
+  <!-- Uniforms -->
+  <section class="card">
+    <h2>School Uniforms</h2>
+    <ul>
+      <li>Two grey long trousers</li>
+      <li>Two white short sleeved shirts with logo</li>
+      <li>Green striped sweater with logo</li>
+      <li>Green sleeveless sweater with logo</li>
+      <li>Two grey socks with green/white stripes</li>
+      <li>Games kit – Yellow</li>
+      <li>Green neck tie</li>
+      <li>Green blazer</li>
+      <li>Grey shorts</li>
+      <li>Branded navy blue tracksuit (Compulsory)</li>
+    </ul>
+    <p><strong>Note:</strong> Uniforms are available at Shanir Wool Shop next to Eldoret Post Office. Branding will be done at school at Ksh. 400/= once the student is issued with an admission number.</p>
+  </section>
+
+  <!-- Admission Process -->
+  <section class="card">
+    <h2>Admission Process</h2>
+    <p>Admission into Kapenguria School is competitive and based on merit. Students are selected according to KCPE performance and recommendations. Successful applicants must present all required documents and personal effects during reporting day. Orientation programs are conducted to help new students settle into school life.</p>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
   </footer>
+
+  <!-- Slideshow Script -->
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slides img');
+    function showSlide(index) {
+      slides.forEach((img, i) => {
+        img.classList.remove('active');
+        if (i === index) img.classList.add('active');
+      });
+    }
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+    setInterval(nextSlide, 4000);
+  </script>
 </body>
 </html>
+
