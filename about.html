@@ -3,38 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <title>About Us - Kapenguria School</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i.imgur.com/tyjm8K4.png">
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W8LFZ3WFD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9W8LFZ3WFD');
-  </script>
 </head>
 <body>
+  <!-- Navigation -->
   <header>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="academics.html">Academics</a></li>
+        <li><a href="co-curricular.html">Co-Curricular</a></li>
+        <li><a href="students.html">Students’ Arena</a></li>
         <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="rules.html">School Rules</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="news.html">News</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="card">
-    <h2>About Kapenguria School</h2>
-    <p>Kapenguria School (formerly Kapenguria Boys High School) is a public boys’ boarding secondary school dedicated to excellence, discipline, and success.</p>
-    <p>Our mission is to nurture future leaders through holistic education, strong values, and a commitment to academic excellence.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="slides">
+      <img src="https://i.imgur.com/YvYEh6N.jpg" alt="About Us Hero" class="active">
+      <img src="https://i.imgur.com/edsDFaW.jpg" alt="School Campus">
+    </div>
+    <div class="hero-text">
+      <h1>About Us</h1>
+      <p>Shaping Future Leaders • Excellence • Discipline • Success</p>
+    </div>
   </section>
 
+  <!-- History -->
+  <section class="card">
+    <h2>Our History</h2>
+    <p>Kapenguria School, formerly Kapenguria Boys High School, was established to provide quality education to young men in West Pokot County. Over the years, it has grown into a center of academic excellence and holistic development, producing leaders who serve both locally and nationally.</p>
+  </section>
+
+  <!-- Vision & Mission -->
+  <section class="card">
+    <h2>Vision & Mission</h2>
+    <p><strong>Vision:</strong> To be a leading institution that nurtures disciplined, innovative, and responsible citizens.</p>
+    <p><strong>Mission:</strong> To provide quality education and holistic training that empowers learners to excel academically, socially, and morally.</p>
+  </section>
+
+  <!-- Core Values -->
+  <section class="card">
+    <h2>Core Values</h2>
+    <ul>
+      <li>Discipline – the foundation of success.</li>
+      <li>Excellence – striving for the highest standards.</li>
+      <li>Integrity – honesty and accountability in all actions.</li>
+      <li>Teamwork – working together for collective achievement.</li>
+      <li>Service – giving back to the community.</li>
+    </ul>
+  </section>
+
+  <!-- Achievements -->
+  <section class="card">
+    <h2>Achievements</h2>
+    <p>Kapenguria School has consistently ranked among the top schools in West Pokot County. Our students have excelled in:</p>
+    <ul>
+      <li>KCSE examinations with outstanding mean scores.</li>
+      <li>National Science Congress competitions.</li>
+      <li>County and regional sports championships.</li>
+      <li>Debate and drama festivals at national level.</li>
+      <li>Community service and outreach programs.</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
   </footer>
+
+  <!-- Slideshow Script -->
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slides img');
+    function showSlide(index) {
+      slides.forEach((img, i) => {
+        img.classList.remove('active');
+        if (i === index) img.classList.add('active');
+      });
+    }
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+    setInterval(nextSlide, 4000);
+  </script>
 </body>
 </html>
