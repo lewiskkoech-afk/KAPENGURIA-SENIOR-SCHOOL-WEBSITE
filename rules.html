@@ -12,8 +12,13 @@
 <body>
   <!-- Navigation -->
   <header>
-    <nav>
-      <ul>
+    <nav aria-label="Main navigation">
+      <a href="index.html" class="logo">Kapenguria School</a>
+      <button class="menu-toggle" type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="main-menu">☰</button>
+      <ul class="nav-links" id="main-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="academics.html">Academics</a></li>
@@ -32,55 +37,58 @@
   <section class="hero">
     <div class="slides">
       <img src="https://i.imgur.com/YvYEh6N.jpg" alt="School Rules Hero" class="active">
-      <img src="https://i.imgur.com/edsDFaW.jpg" alt="Discipline at Kapenguria">
+      <img src="https://i.imgur.com/edsDFaW.jpg" alt="Discipline and Conduct">
     </div>
     <div class="hero-text">
       <h1>School Rules</h1>
-      <p>Discipline • Excellence • Success</p>
+      <p>Discipline • Responsibility • Excellence</p>
     </div>
   </section>
 
-  <!-- Rules Section -->
+  <!-- General Conduct -->
   <section class="card">
     <h2>General Conduct</h2>
     <ul>
-      <li>Students must uphold discipline, respect, and integrity at all times.</li>
-      <li>Punctuality is mandatory for all lessons, assemblies, and school events.</li>
-      <li>Respect for teachers, staff, and fellow students is expected.</li>
-      <li>Bullying, fighting, or harassment of any kind is strictly prohibited.</li>
+      <li>Students must respect teachers, staff, and fellow learners.</li>
+      <li>Punctuality is required for all classes, assemblies, and activities.</li>
+      <li>Bullying, fighting, or use of abusive language is strictly prohibited.</li>
+      <li>Respect for school property and environment is mandatory.</li>
+      <li>Mobile phones and unauthorized electronic devices are not allowed.</li>
     </ul>
   </section>
 
+  <!-- Academic Rules -->
   <section class="card">
     <h2>Academic Rules</h2>
     <ul>
-      <li>Students must attend all classes and complete assignments on time.</li>
-      <li>Cheating in examinations or tests will result in disciplinary action.</li>
+      <li>Students must attend all lessons and complete assignments on time.</li>
+      <li>Cheating in examinations or tests will lead to disciplinary action.</li>
       <li>Library books must be returned on time and handled with care.</li>
+      <li>Classroom discipline must be maintained at all times.</li>
     </ul>
   </section>
 
+  <!-- Dress Code -->
   <section class="card">
     <h2>Dress Code</h2>
     <ul>
-      <li>Students must wear the prescribed school uniform at all times.</li>
-      <li>Games kits and tracksuits are compulsory during sports activities.</li>
-      <li>Neat grooming and personal hygiene are expected daily.</li>
+      <li>Full school uniform must be worn during school hours.</li>
+      <li>Games kit is compulsory during sports activities.</li>
+      <li>Students must keep uniforms neat, clean, and properly branded.</li>
+      <li>Jewelry, makeup, or unauthorized clothing is not permitted.</li>
     </ul>
   </section>
 
+  <!-- Boarding Rules -->
   <section class="card">
     <h2>Boarding Rules</h2>
     <ul>
-      <li>Silence must be observed in dormitories after lights out.</li>
-      <li>Students must keep their dormitories clean and orderly.</li>
-      <li>Unauthorized items such as radios, phones, or sharp objects are not allowed.</li>
+      <li>Lights out at 10:00 PM; silence must be observed thereafter.</li>
+      <li>Students must maintain cleanliness in dormitories and bathrooms.</li>
+      <li>Cooking in dormitories is strictly prohibited.</li>
+      <li>Visitors are only allowed with permission from the administration.</li>
+      <li>Students must respect prefects and dorm supervisors.</li>
     </ul>
-  </section>
-
-  <section class="card">
-    <h2>Disciplinary Measures</h2>
-    <p>Any violation of school rules will attract disciplinary action, which may include warnings, detention, suspension, or expulsion depending on the severity of the offense.</p>
   </section>
 
   <!-- Footer -->
@@ -88,21 +96,31 @@
     <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
   </footer>
 
-  <!-- Slideshow Script -->
+  <!-- Scripts -->
   <script>
-    let current = 0;
-    const slides = document.querySelectorAll('.slides img');
-    function showSlide(index) {
-      slides.forEach((img, i) => {
-        img.classList.remove('active');
-        if (i === index) img.classList.add('active');
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      const mobileBreakpoint = 768;
+
+      menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", isOpen);
+        menuToggle.textContent = isOpen ? "✕" : "☰";
       });
-    }
-    function nextSlide() {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    }
-    setInterval(nextSlide, 4000);
+
+      const slides = document.querySelectorAll(".slides img");
+      let current = 0;
+      function showSlide(index) {
+        slides.forEach((img, i) => img.classList.toggle("active", i === index));
+      }
+      if (slides.length > 1) {
+        setInterval(() => {
+          current = (current + 1) % slides.length;
+          showSlide(current);
+        }, 4000);
+      }
+    });
   </script>
 </body>
 </html>
