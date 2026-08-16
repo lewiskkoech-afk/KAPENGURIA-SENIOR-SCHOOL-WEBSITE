@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +13,13 @@
 <body>
   <!-- Navigation -->
   <header>
-    <nav>
-      <ul>
+    <nav aria-label="Main navigation">
+      <a href="index.html" class="logo">Kapenguria School</a>
+      <button class="menu-toggle" type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="main-menu">☰</button>
+      <ul class="nav-links" id="main-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="academics.html">Academics</a></li>
@@ -41,7 +47,7 @@
   </section>
 
   <!-- Academic Departments -->
-  <section class="card">
+  <section class="card" id="departments">
     <h2>Academic Departments</h2>
     <p>Kapenguria School offers a wide range of subjects across key departments:</p>
     <ul>
@@ -54,13 +60,13 @@
   </section>
 
   <!-- Curriculum -->
-  <section class="card">
+  <section class="card" id="curriculum">
     <h2>Curriculum</h2>
     <p>The school follows the Kenyan 8-4-4 curriculum, preparing students for KCSE examinations. Emphasis is placed on both academic excellence and holistic development, ensuring learners are well-rounded and ready for future challenges.</p>
   </section>
 
   <!-- Performance -->
-  <section class="card">
+  <section class="card" id="performance">
     <h2>Academic Performance</h2>
     <p>Kapenguria School has consistently ranked among the top schools in West Pokot County. Recent highlights include:</p>
     <ul>
@@ -71,7 +77,7 @@
   </section>
 
   <!-- Support Programs -->
-  <section class="card">
+  <section class="card" id="support">
     <h2>Support Programs</h2>
     <p>To enhance academic success, the school provides:</p>
     <ul>
@@ -82,29 +88,60 @@
     </ul>
   </section>
 
+  <!-- Faculty Profiles -->
+  <section class="card" id="faculty">
+    <h2>Faculty Profiles</h2>
+    <p>Our dedicated teaching staff bring expertise and passion to the classroom:</p>
+    <ul>
+      <li><strong>Mr. John Mwangi</strong> – Head of Sciences, with 15 years of experience in Physics and Chemistry.</li>
+      <li><strong>Mrs. Grace Chebet</strong> – Head of Languages, specializing in English and French.</li>
+      <li><strong>Mr. Peter Kiptoo</strong> – Mathematics Department, renowned for producing top KCSE performers.</li>
+      <li><strong>Mrs. Alice Wanjiru</strong> – Humanities Department, expert in History and Geography.</li>
+    </ul>
+  </section>
+
+  <!-- Facilities -->
+  <section class="card" id="facilities">
+    <h2>Academic Facilities</h2>
+    <p>Kapenguria School provides modern facilities to support learning:</p>
+    <ul>
+      <li>Fully equipped science laboratories for practical experiments.</li>
+      <li>ICT lab with high-speed internet and modern computers.</li>
+      <li>Library stocked with textbooks, reference materials, and digital resources.</li>
+      <li>Quiet study areas and discussion rooms for group work.</li>
+    </ul>
+  </section>
+
   <!-- Footer -->
   <footer>
     <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
   </footer>
 
-  <!-- Slideshow Script -->
+  <!-- Scripts -->
   <script>
-    let current = 0;
-    const slides = document.querySelectorAll('.slides img');
-    function showSlide(index) {
-      slides.forEach((img, i) => {
-        img.classList.remove('active');
-        if (i === index) img.classList.add('active');
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      const mobileBreakpoint = 768;
+
+      menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", isOpen);
+        menuToggle.textContent = isOpen ? "✕" : "☰";
       });
-    }
-    function nextSlide() {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    }
-    setInterval(nextSlide, 4000);
+
+      const slides = document.querySelectorAll(".slides img");
+      let current = 0;
+      function showSlide(index) {
+        slides.forEach((img, i) => img.classList.toggle("active", i === index));
+      }
+      if (slides.length > 1) {
+        setInterval(() => {
+          current = (current + 1) % slides.length;
+          showSlide(current);
+        }, 4000);
+      }
+    });
   </script>
 </body>
 </html>
-
-
-
