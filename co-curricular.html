@@ -12,8 +12,13 @@
 <body>
   <!-- Navigation -->
   <header>
-    <nav>
-      <ul>
+    <nav aria-label="Main navigation">
+      <a href="index.html" class="logo">Kapenguria School</a>
+      <button class="menu-toggle" type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="main-menu">☰</button>
+      <ul class="nav-links" id="main-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="academics.html">Academics</a></li>
@@ -41,7 +46,7 @@
   </section>
 
   <!-- Sports -->
-  <section class="card">
+  <section class="card" id="sports">
     <h2>Sports</h2>
     <p>Kapenguria School has a proud tradition of sporting excellence. Students participate in:</p>
     <ul>
@@ -53,7 +58,7 @@
   </section>
 
   <!-- Clubs & Societies -->
-  <section class="card">
+  <section class="card" id="clubs">
     <h2>Clubs & Societies</h2>
     <p>Our clubs and societies nurture talents and leadership skills:</p>
     <ul>
@@ -65,7 +70,7 @@
   </section>
 
   <!-- Arts & Culture -->
-  <section class="card">
+  <section class="card" id="arts">
     <h2>Arts & Culture</h2>
     <p>Students showcase creativity and cultural heritage through:</p>
     <ul>
@@ -76,7 +81,7 @@
   </section>
 
   <!-- Leadership Activities -->
-  <section class="card">
+  <section class="card" id="leadership">
     <h2>Leadership Activities</h2>
     <p>Leadership is cultivated through active participation in:</p>
     <ul>
@@ -86,26 +91,55 @@
     </ul>
   </section>
 
+  <!-- Achievements -->
+  <section class="card">
+    <h2>Achievements</h2>
+    <p>Our co-curricular programs have produced outstanding results:</p>
+    <ul>
+      <li>Winners of County Drama Festival 2025</li>
+      <li>Regional Athletics Champions 2026</li>
+      <li>National Debate finalists 2025</li>
+      <li>Environmental Club recognized for tree planting initiatives</li>
+    </ul>
+  </section>
+
+  <!-- Photo Highlights -->
+  <section class="card">
+    <h2>Photo Highlights</h2>
+    <p>See more moments from our co-curricular activities in the <a href="gallery.html">Gallery</a>.</p>
+  </section>
+
   <!-- Footer -->
   <footer>
     <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
   </footer>
 
-  <!-- Slideshow Script -->
+  <!-- Scripts -->
   <script>
-    let current = 0;
-    const slides = document.querySelectorAll('.slides img');
-    function showSlide(index) {
-      slides.forEach((img, i) => {
-        img.classList.remove('active');
-        if (i === index) img.classList.add('active');
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      const mobileBreakpoint = 768;
+
+      menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", isOpen);
+        menuToggle.textContent = isOpen ? "✕" : "☰";
       });
-    }
-    function nextSlide() {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    }
-    setInterval(nextSlide, 4000);
+
+      const slides = document.querySelectorAll(".slides img");
+      let current = 0;
+      function showSlide(index) {
+        slides.forEach((img, i) => img.classList.toggle("active", i === index));
+      }
+      if (slides.length > 1) {
+        setInterval(() => {
+          current = (current + 1) % slides.length;
+          showSlide(current);
+        }, 4000);
+      }
+    });
   </script>
 </body>
 </html>
+
