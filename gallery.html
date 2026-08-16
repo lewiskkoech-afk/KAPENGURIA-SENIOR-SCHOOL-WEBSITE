@@ -21,17 +21,42 @@
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       transition: transform 0.3s;
+      cursor: pointer;
     }
     .gallery img:hover {
       transform: scale(1.05);
+    }
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 8px;
+    }
+    .lightbox:target {
+      display: flex;
     }
   </style>
 </head>
 <body>
   <!-- Navigation -->
   <header>
-    <nav>
-      <ul>
+    <nav aria-label="Main navigation">
+      <a href="index.html" class="logo">Kapenguria School</a>
+      <button class="menu-toggle" type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="main-menu">☰</button>
+      <ul class="nav-links" id="main-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="academics.html">Academics</a></li>
@@ -60,38 +85,60 @@
 
   <!-- Gallery Section -->
   <section class="gallery">
-    <img src="https://i.imgur.com/YvYEh6N.jpg" alt="School Assembly">
-    <img src="https://i.imgur.com/edsDFaW.jpg" alt="Classroom Learning">
-    <img src="https://i.imgur.com/45P4QUM.jpg" alt="Sports Day">
-    <img src="https://i.imgur.com/kmzdeGC.jpg" alt="Science Congress">
-    <img src="https://i.imgur.com/mYP77Ng.jpg" alt="Debate Club">
-    <img src="https://i.imgur.com/2VDBtSK.jpg" alt="Drama Festival">
-    <img src="https://i.imgur.com/QVUCbAk.jpg" alt="Football Team">
-    <img src="https://i.imgur.com/aqCGQSU.jpg" alt="Athletics Winners">
-    <img src="https://i.imgur.com/vSltyM3.jpg" alt="Library Study">
-    <img src="https://i.imgur.com/fMFHBIQ.jpg" alt="Choir Performance">
+    <a href="#img1"><img src="https://i.imgur.com/YvYEh6N.jpg" alt="School Assembly"></a>
+    <a href="#img2"><img src="https://i.imgur.com/edsDFaW.jpg" alt="Classroom Learning"></a>
+    <a href="#img3"><img src="https://i.imgur.com/45P4QUM.jpg" alt="Sports Day"></a>
+    <a href="#img4"><img src="https://i.imgur.com/kmzdeGC.jpg" alt="Science Congress"></a>
+    <a href="#img5"><img src="https://i.imgur.com/mYP77Ng.jpg" alt="Debate Club"></a>
+    <a href="#img6"><img src="https://i.imgur.com/2VDBtSK.jpg" alt="Drama Festival"></a>
+    <a href="#img7"><img src="https://i.imgur.com/QVUCbAk.jpg" alt="Football Team"></a>
+    <a href="#img8"><img src="https://i.imgur.com/aqCGQSU.jpg" alt="Athletics Winners"></a>
+    <a href="#img9"><img src="https://i.imgur.com/vSltyM3.jpg" alt="Library Study"></a>
+    <a href="#img10"><img src="https://i.imgur.com/fMFHBIQ.jpg" alt="Choir Performance"></a>
   </section>
+
+  <!-- Lightbox Images -->
+  <div id="img1" class="lightbox"><img src="https://i.imgur.com/YvYEh6N.jpg" alt="School Assembly"></div>
+  <div id="img2" class="lightbox"><img src="https://i.imgur.com/edsDFaW.jpg" alt="Classroom Learning"></div>
+  <div id="img3" class="lightbox"><img src="https://i.imgur.com/45P4QUM.jpg" alt="Sports Day"></div>
+  <div id="img4" class="lightbox"><img src="https://i.imgur.com/kmzdeGC.jpg" alt="Science Congress"></div>
+  <div id="img5" class="lightbox"><img src="https://i.imgur.com/mYP77Ng.jpg" alt="Debate Club"></div>
+  <div id="img6" class="lightbox"><img src="https://i.imgur.com/2VDBtSK.jpg" alt="Drama Festival"></div>
+  <div id="img7" class="lightbox"><img src="https://i.imgur.com/QVUCbAk.jpg" alt="Football Team"></div>
+  <div id="img8" class="lightbox"><img src="https://i.imgur.com/aqCGQSU.jpg" alt="Athletics Winners"></div>
+  <div id="img9" class="lightbox"><img src="https://i.imgur.com/vSltyM3.jpg" alt="Library Study"></div>
+  <div id="img10" class="lightbox"><img src="https://i.imgur.com/fMFHBIQ.jpg" alt="Choir Performance"></div>
 
   <!-- Footer -->
   <footer>
     <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
   </footer>
 
-  <!-- Slideshow Script -->
+  <!-- Scripts -->
   <script>
-    let current = 0;
-    const slides = document.querySelectorAll('.slides img');
-    function showSlide(index) {
-      slides.forEach((img, i) => {
-        img.classList.remove('active');
-        if (i === index) img.classList.add('active');
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      const mobileBreakpoint = 768;
+
+      menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", isOpen);
+        menuToggle.textContent = isOpen ? "✕" : "☰";
       });
-    }
-    function nextSlide() {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    }
-    setInterval(nextSlide, 4000);
+
+      const slides = document.querySelectorAll(".slides img");
+      let current = 0;
+      function showSlide(index) {
+        slides.forEach((img, i) => img.classList.toggle("active", i === index));
+      }
+      if (slides.length > 1) {
+        setInterval(() => {
+          current = (current + 1) % slides.length;
+          showSlide(current);
+        }, 4000);
+      }
+    });
   </script>
 </body>
 </html>
