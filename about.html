@@ -12,8 +12,13 @@
 <body>
   <!-- Navigation -->
   <header>
-    <nav>
-      <ul>
+    <nav aria-label="Main navigation">
+      <a href="index.html" class="logo">Kapenguria School</a>
+      <button class="menu-toggle" type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="main-menu">☰</button>
+      <ul class="nav-links" id="main-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="academics.html">Academics</a></li>
@@ -41,13 +46,13 @@
   </section>
 
   <!-- History -->
-  <section class="card">
+  <section class="card" id="history">
     <h2>Our History</h2>
     <p>Kapenguria School, formerly Kapenguria Boys High School, was established to provide quality education to young men in West Pokot County. Over the years, it has grown into a center of academic excellence and holistic development, producing leaders who serve both locally and nationally.</p>
   </section>
 
   <!-- Vision & Mission -->
-  <section class="card">
+  <section class="card" id="mission">
     <h2>Vision & Mission</h2>
     <p><strong>Vision:</strong> To be a leading institution that nurtures disciplined, innovative, and responsible citizens.</p>
     <p><strong>Mission:</strong> To provide quality education and holistic training that empowers learners to excel academically, socially, and morally.</p>
@@ -78,26 +83,43 @@
     </ul>
   </section>
 
+  <!-- Principal's Message -->
+  <section class="card">
+    <h2>Principal’s Message</h2>
+    <p>Welcome to Kapenguria School. Our institution is built on discipline, excellence, and service. We believe in nurturing students to become responsible citizens who will positively impact society. Together, we strive for success in academics, co-curricular activities, and personal growth.</p>
+  </section>
+
   <!-- Footer -->
   <footer>
     <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
   </footer>
 
-  <!-- Slideshow Script -->
+  <!-- Scripts -->
   <script>
-    let current = 0;
-    const slides = document.querySelectorAll('.slides img');
-    function showSlide(index) {
-      slides.forEach((img, i) => {
-        img.classList.remove('active');
-        if (i === index) img.classList.add('active');
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      const mobileBreakpoint = 768;
+
+      menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", isOpen);
+        menuToggle.textContent = isOpen ? "✕" : "☰";
       });
-    }
-    function nextSlide() {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    }
-    setInterval(nextSlide, 4000);
+
+      const slides = document.querySelectorAll(".slides img");
+      let current = 0;
+      function showSlide(index) {
+        slides.forEach((img, i) => img.classList.toggle("active", i === index));
+      }
+      if (slides.length > 1) {
+        setInterval(() => {
+          current = (current + 1) % slides.length;
+          showSlide(current);
+        }, 4000);
+      }
+    });
   </script>
 </body>
 </html>
+
