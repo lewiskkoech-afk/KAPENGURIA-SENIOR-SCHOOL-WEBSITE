@@ -3,23 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <title>Results - Kapenguria School</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i.imgur.com/tyjm8K4.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header><nav>…</nav></header>
+  <!-- Navigation -->
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="index.html" class="logo">Kapenguria School</a>
+      <button class="menu-toggle" type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="main-menu">☰</button>
+      <ul class="nav-links" id="main-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="co-curricular.html">Co-Curricular</a></li>
+        <li><a href="students.html">Students’ Arena</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+        <li><a href="rules.html">School Rules</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <section class="card">
-    <h2>KCSE Results</h2>
-    <table border="1" cellpadding="10">
-      <tr><th>Grade</th><th>Number of Students</th></tr>
-      <tr><td>A</td><td>25</td></tr>
-      <tr><td>A-</td><td>40</td></tr>
-      <tr><td>B+</td><td>60</td></tr>
-      <tr><td>B</td><td>55</td></tr>
-      <tr><td>C+</td><td>30</td></tr>
-    </table>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="slides">
+      <img src="https://i.imgur.com/YvYEh6N.jpg" alt="Results Hero" class="active">
+      <img src="https://i.imgur.com/edsDFaW.jpg" alt="Exam Results">
+    </div>
+    <div class="hero-text">
+      <h1>KCSE Results</h1>
+      <p>Celebrating Academic Excellence</p>
+    </div>
   </section>
 
-  <footer><p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p></footer>
+  <!-- KCSE Results -->
+  <section class="card">
+    <h2>Overall Performance</h2>
+    <p>Kapenguria School has consistently excelled in KCSE examinations. In 2025, the school achieved a mean score of <strong>9.2 (B+)</strong>, ranking among the top schools in West Pokot County.</p>
+    <ul>
+      <li>Over 80% of candidates qualified for university admission.</li>
+      <li>Top student scored an A plain with 84 points.</li>
+      <li>10 students scored A-, 25 scored B+, and majority attained strong passes.</li>
+    </ul>
+  </section>
+
+  <!-- Subject Analysis -->
+  <section class="card">
+    <h2>Subject Analysis</h2>
+    <p>Performance by subject in KCSE 2025:</p>
+    <ul>
+      <li>Mathematics – Mean grade A-</li>
+      <li>English – Mean grade B+</li>
+      <li>Kiswahili – Mean grade B</li>
+      <li>Biology – Mean grade B+</li>
+      <li>Chemistry – Mean grade B+</li>
+      <li>Physics – Mean grade A-</li>
+      <li>History – Mean grade B+</li>
+      <li>Geography – Mean grade B+</li>
+    </ul>
+  </section>
+
+  <!-- University Placement -->
+  <section class="card">
+    <h2>University Placement</h2>
+    <p>Our graduates have secured placements in top universities across Kenya and abroad:</p>
+    <ul>
+      <li>University of Nairobi – Medicine, Engineering, Law</li>
+      <li>Kenyatta University – Education, Business Studies</li>
+      <li>Moi University – ICT, Agriculture, Nursing</li>
+      <li>International scholarships – 5 students admitted to universities in the USA and UK</li>
+    </ul>
+  </section>
+
+  <!-- Achievements -->
+  <section class="card">
+    <h2>Recent Achievements</h2>
+    <p>Kapenguria School continues to shine in academics:</p>
+    <ul>
+      <li>National Science Congress finalists in 2025.</li>
+      <li>County Debate Champions 2025.</li>
+      <li>Regional Mathematics Contest winners.</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      const dropdowns = document.querySelectorAll(".dropdown");
+      const mobileBreakpoint = 768;
+
+      menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", isOpen);
+        menuToggle.textContent = isOpen ? "✕" : "☰";
+      });
+
+      const slides = document.querySelectorAll(".slides img");
+      let currentSlide = 0;
+      function showSlide(index) {
+        slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+      }
+      if (slides.length > 1) {
+        setInterval(() => {
+          currentSlide = (currentSlide + 1) % slides.length;
+          showSlide(currentSlide);
+        }, 4000);
+      }
+    });
+  </script>
 </body>
 </html>
+
