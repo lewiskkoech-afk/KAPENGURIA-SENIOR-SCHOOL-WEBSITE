@@ -2,51 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Kapenguria School</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ✅ Google Search Console Verification -->
-  <meta name="google-site-verification" content="PDcqUqILdF3EADrXQjvUUoKU2">
+  <title>Kapenguria School</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://i.imgur.com/tyjm8K4.png">
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
+
   <style>
-    /* Ensure slideshow shows first image */
+    /* Slideshow */
     .slides img { display: none; }
     .slides img.active { display: block; }
   </style>
 </head>
+
 <body>
+
   <!-- =========================
        NAVIGATION
   ========================== -->
   <header>
-    <nav>
-      <ul>
+    <nav aria-label="Main navigation">
+      <a href="index.html" class="logo">Kapenguria School</a>
+
+      <button class="menu-toggle" type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="main-menu">☰</button>
+
+      <ul class="nav-links" id="main-menu">
         <li><a href="index.html">Home</a></li>
-        <li class="dropdown"><a href="about.html">About Us ▾</a>
+
+        <li class="dropdown">
+          <a href="about.html">About Us ▾</a>
           <ul class="dropdown-content">
             <li><a href="about.html#history">History</a></li>
             <li><a href="about.html#mission">Mission</a></li>
             <li><a href="about.html#vision">Vision</a></li>
           </ul>
         </li>
-        <li class="dropdown"><a href="academics.html">Academics ▾</a>
+
+        <li class="dropdown">
+          <a href="academics.html">Academics ▾</a>
           <ul class="dropdown-content">
             <li><a href="academics.html#curriculum">Curriculum</a></li>
             <li><a href="academics.html#subjects">Subjects</a></li>
             <li><a href="results.html">Results</a></li>
           </ul>
         </li>
-        <li class="dropdown"><a href="co-curricular.html">Co-Curricular ▾</a>
+
+        <li class="dropdown">
+          <a href="co-curricular.html">Co-Curricular ▾</a>
           <ul class="dropdown-content">
             <li><a href="co-curricular.html#sports">Sports</a></li>
             <li><a href="co-curricular.html#clubs">Clubs</a></li>
             <li><a href="co-curricular.html#societies">Societies</a></li>
           </ul>
         </li>
+
         <li><a href="students.html">Students’ Arena</a></li>
         <li><a href="admissions.html">Admissions</a></li>
         <li><a href="rules.html">School Rules</a></li>
@@ -60,86 +73,136 @@
   <!-- =========================
        HERO SECTION
   ========================== -->
-  <section class="hero">
-    <div class="slides">
-      <!-- Verified Imgur images only -->
-      <img src="https://i.imgur.com/YvYEh6N.jpg" alt="Kapenguria School Hero" class="active">
-      <img src="https://i.imgur.com/edsDFaW.jpg" alt="School Campus">
-    </div>
-    <div class="hero-text">
-      <h1>Shaping Future Leaders</h1>
+  <main>
+    <section class="hero" aria-label="Kapenguria School introduction">
+      <div class="slides">
+        <img src="https://i.imgur.com/YvYEh6N.jpg" alt="Kapenguria School campus" class="active">
+        <img src="https://i.imgur.com/edsDFaW.jpg" alt="Kapenguria School grounds">
+      </div>
+      <div class="hero-text">
+        <h1>Shaping Future Leaders</h1>
+        <p>Excellence • Discipline • Success</p>
+        <button type="button" onclick="window.location.href='about.html'">Learn More</button>
+      </div>
+    </section>
+
+    <!-- Announcements -->
+    <section class="ticker" aria-label="School announcements">
+      <div class="ticker-text">Sports Day – Sept 15 | Exams – Aug 20 | Trip – July 30</div>
+    </section>
+
+    <!-- Principal's Message -->
+    <section class="card">
+      <h2>Principal’s Message</h2>
+      <p>Welcome to Kapenguria School. We are committed to discipline, excellence, and success in all areas of student life.</p>
+    </section>
+
+    <!-- Motto & Values -->
+    <section class="card">
+      <h2>Our Motto</h2>
       <p>Excellence • Discipline • Success</p>
-      <button>Learn More</button>
-    </div>
-  </section>
+    </section>
 
-  <!-- =========================
-       ANNOUNCEMENTS
-  ========================== -->
-  <section class="ticker">
-    <div class="ticker-text">Sports Day – Sept 15 | Exams – Aug 20 | Trip – July 30</div>
-  </section>
+    <section class="card">
+      <h2>Core Values</h2>
+      <p>Integrity, Responsibility, Teamwork, Leadership.</p>
+    </section>
 
-  <!-- =========================
-       PRINCIPAL’S MESSAGE
-  ========================== -->
-  <section class="card">
-    <h2>Principal’s Message</h2>
-    <p>Welcome to Kapenguria School. We are committed to discipline, excellence, and success in all areas of student life.</p>
-  </section>
-
-  <!-- =========================
-       MOTTO & VALUES
-  ========================== -->
-  <section class="card">
-    <h2>Our Motto</h2>
-    <p>Excellence • Discipline • Success</p>
-  </section>
-
-  <section class="card">
-    <h2>Core Values</h2>
-    <p>Integrity, Responsibility, Teamwork, Leadership.</p>
-  </section>
-
-  <!-- =========================
-       GALLERY PREVIEW
-  ========================== -->
-  <section class="gallery">
-    <h2>Photo Gallery</h2>
-    <div class="gallery-grid">
-      <img src="https://i.imgur.com/YvYEh6N.jpg" alt="School Event">
-      <img src="https://i.imgur.com/edsDFaW.jpg" alt="Campus Grounds">
-    </div>
-  </section>
+    <!-- Gallery Preview -->
+    <section class="gallery">
+      <h2>Photo Gallery</h2>
+      <div class="gallery-grid">
+        <img src="https://i.imgur.com/YvYEh6N.jpg" alt="Kapenguria School event">
+        <img src="https://i.imgur.com/edsDFaW.jpg" alt="Kapenguria School campus grounds">
+      </div>
+    </section>
+  </main>
 
   <!-- =========================
        FOOTER
   ========================== -->
   <footer>
-    <p><strong>Address:</strong> P.O. Box 343-30600, Kapenguria</p>
-    <p><strong>Phone:</strong>+254 743 343 343 </p>
-    <p><strong>Email:</strong> kapeboys@gmail.com</p>
+    <p><strong>Address:</strong> P.O. Box 123, Kapenguria, Kenya</p>
+    <p><strong>Phone:</strong> +254 700 123 456</p>
+    <p><strong>Email:</strong> info@kapenguriaschool.ac.ke</p>
     <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
   </footer>
 
   <!-- =========================
-       SLIDESHOW SCRIPT
+       SCRIPTS
   ========================== -->
   <script>
-    let current = 0;
-    const slides = document.querySelectorAll('.slides img');
-    function showSlide(index) {
-      slides.forEach((img, i) => {
-        img.classList.remove('active');
-        if (i === index) img.classList.add('active');
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      const dropdowns = document.querySelectorAll(".dropdown");
+      const mobileBreakpoint = 768;
+
+      // Toggle mobile menu
+      menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", isOpen);
+        menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+        menuToggle.textContent = isOpen ? "✕" : "☰";
       });
-    }
-    function nextSlide() {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    }
-    setInterval(nextSlide, 4000); // change every 4 seconds
+
+      // Dropdown handling for mobile
+      dropdowns.forEach(function (dropdown) {
+        const dropdownLink = dropdown.querySelector(":scope > a");
+        dropdownLink.addEventListener("click", function (event) {
+          if (window.innerWidth <= mobileBreakpoint) {
+            event.preventDefault();
+            dropdowns.forEach(item => { if (item !== dropdown) item.classList.remove("open"); });
+            dropdown.classList.toggle("open");
+          }
+        });
+      });
+
+      // Close menu after selecting a normal link
+      document.querySelectorAll(".nav-links > li:not(.dropdown) > a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open navigation menu");
+          menuToggle.textContent = "☰";
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", function (event) {
+        if (!event.target.closest("nav") && window.innerWidth <= mobileBreakpoint) {
+          navLinks.classList.remove("active");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open navigation menu");
+          menuToggle.textContent = "☰";
+          dropdowns.forEach(dropdown => dropdown.classList.remove("open"));
+        }
+      });
+
+      // Reset menu on desktop resize
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > mobileBreakpoint) {
+          navLinks.classList.remove("active");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open navigation menu");
+          menuToggle.textContent = "☰";
+          dropdowns.forEach(dropdown => dropdown.classList.remove("open"));
+        }
+      });
+
+      // Hero slideshow
+      const slides = document.querySelectorAll(".slides img");
+      let currentSlide = 0;
+      function showSlide(index) {
+        slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+      }
+      if (slides.length > 1) {
+        setInterval(() => {
+          currentSlide = (currentSlide + 1) % slides.length;
+          showSlide(currentSlide);
+        }, 4000);
+      }
+    });
   </script>
 </body>
 </html>
-
