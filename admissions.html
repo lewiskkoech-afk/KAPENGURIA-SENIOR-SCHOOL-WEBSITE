@@ -12,8 +12,13 @@
 <body>
   <!-- Navigation -->
   <header>
-    <nav>
-      <ul>
+    <nav aria-label="Main navigation">
+      <a href="index.html" class="logo">Kapenguria School</a>
+      <button class="menu-toggle" type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="main-menu">☰</button>
+      <ul class="nav-links" id="main-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="academics.html">Academics</a></li>
@@ -45,7 +50,7 @@
     <h2>Admission Requirements</h2>
     <ul>
       <li>Duly filled admission letter</li>
-      <li>Certified KCPE Results Slip and recommendation letter</li>
+      <li>Certified KCPE/KPSEA Results Slip and recommendation letter</li>
       <li>School Leaving Certificate (certified)</li>
       <li>Original & photocopy of Birth Certificate</li>
       <li>Three passport size photographs</li>
@@ -65,9 +70,8 @@
     <ul>
       <li>Strong metallic box with padlocks</li>
       <li>4-inch high density mattress (blue)</li>
-      <li>Two blankets and two light green bed sheets</li>
-      <li>Bed cover (light green)</li>
-      <li>Grey plastic washing bucket</li>
+      <li>Two blanket</li>
+      <li>Grey  washing bucket</li>
       <li>Canvas shoes (Black Bata Bullet)</li>
       <li>Black leather shoes (Toughees)</li>
       <li>Utensils available at school (Ksh. 400/=)</li>
@@ -88,24 +92,22 @@
   <section class="card">
     <h2>School Uniforms</h2>
     <ul>
-      <li>Two grey long trousers</li>
+      <li>Two black long trousers</li>
       <li>Two white short sleeved shirts with logo</li>
-      <li>Green striped sweater with logo</li>
-      <li>Green sleeveless sweater with logo</li>
-      <li>Two grey socks with green/white stripes</li>
-      <li>Games kit – Yellow</li>
-      <li>Green neck tie</li>
-      <li>Green blazer</li>
-      <li>Grey shorts</li>
-      <li>Branded navy blue tracksuit (Compulsory)</li>
+      <li>Grey striped sweater with logo</li>
+      <li>Grey sleeveless sweater with logo</li>
+      <li>Two black socks </li>
+      <li>Grey neck tie</li>
+      <li>Grey jamper</li>
     </ul>
-    <p><strong>Note:</strong> Uniforms are available at Shanir Wool Shop next to Eldoret Post Office. Branding will be done at school at Ksh. 400/= once the student is issued with an admission number.</p>
+    <p><strong>Note:</strong> Uniforms are available at Shanir Wool Shop next to you. Branding will be done at school at Ksh. 400/= once the student is issued with an admission number.</p>
   </section>
 
   <!-- Admission Process -->
   <section class="card">
     <h2>Admission Process</h2>
     <p>Admission into Kapenguria School is competitive and based on merit. Students are selected according to KCPE performance and recommendations. Successful applicants must present all required documents and personal effects during reporting day. Orientation programs are conducted to help new students settle into school life.</p>
+    <p><strong>Tip:</strong> Parents are encouraged to download the admission form online and prepare all documents early to avoid delays during reporting.</p>
   </section>
 
   <!-- Footer -->
@@ -113,22 +115,31 @@
     <p>© 2026 Kapenguria School | Developed by <strong>LEWIS KIPKOECH SEUREI</strong></p>
   </footer>
 
-  <!-- Slideshow Script -->
+  <!-- Scripts -->
   <script>
-    let current = 0;
-    const slides = document.querySelectorAll('.slides img');
-    function showSlide(index) {
-      slides.forEach((img, i) => {
-        img.classList.remove('active');
-        if (i === index) img.classList.add('active');
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      const mobileBreakpoint = 768;
+
+      menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", isOpen);
+        menuToggle.textContent = isOpen ? "✕" : "☰";
       });
-    }
-    function nextSlide() {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    }
-    setInterval(nextSlide, 4000);
+
+      const slides = document.querySelectorAll(".slides img");
+      let current = 0;
+      function showSlide(index) {
+        slides.forEach((img, i) => img.classList.toggle("active", i === index));
+      }
+      if (slides.length > 1) {
+        setInterval(() => {
+          current = (current + 1) % slides.length;
+          showSlide(current);
+        }, 4000);
+      }
+    });
   </script>
 </body>
 </html>
-
