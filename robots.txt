@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lewiskkoech-afk.github.io/KAPENGURIA-SENIOR-SCHOOL-WEBSITE/sitemap.xml
