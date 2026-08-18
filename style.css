@@ -1,8 +1,15 @@
+/* =========================================================
+   KAPENGURIA SENIOR SCHOOL
+   RESPONSIVE WEBSITE STYLESHEET
+========================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap');
 
-/* =========================
-   RESET & BASE
-========================= */
+
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
+
 :root {
   --maroon: #800000;
   --dark-maroon: #520000;
@@ -12,71 +19,185 @@
   --white: #ffffff;
   --text: #333333;
   --muted: #666666;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
+
+  --shadow:
+    0 10px 30px rgba(0, 0, 0, 0.09);
+
+  --nav-height: 64px;
 }
 
-* {
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+
+/* =========================================================
+   HTML
+========================================================= */
+
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
 }
+
+
+/* =========================================================
+   BODY
+========================================================= */
 
 body {
-  font-family: 'Montserrat', Arial, sans-serif;
-  line-height: 1.6;
+  width: 100%;
+  min-width: 320px;
+  max-width: 100%;
+  overflow-x: hidden;
+
   background: #f7f8fa;
   color: var(--text);
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
+
+/* =========================================================
+   GENERAL ELEMENTS
+========================================================= */
+
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+textarea,
+select,
+a {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
 }
 
 a {
-  transition: all 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
-/* =========================
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
    NAVIGATION
-========================= */
+========================================================= */
+
+header {
+  position: relative;
+  z-index: 1000;
+}
+
+
+/* Main navigation */
+
 header nav {
-  background: rgba(128, 0, 0, 0.98);
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+
   z-index: 1000;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
-}
 
-header nav ul {
-  list-style: none;
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  padding: 0 20px;
-  min-height: 64px;
+  justify-content: center;
+
+  width: 100%;
+  min-height: var(--nav-height);
+
+  padding: 0 25px;
+
+  background: rgba(128, 0, 0, 0.98);
+
+  box-shadow:
+    0 3px 15px rgba(0, 0, 0, 0.2);
 }
 
-header nav ul li {
-  position: relative;
-  margin: 0 3px;
+
+/* School logo */
+
+.logo {
+  display: none;
+
+  color: var(--white);
+
+  font-family: 'Oswald', sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+
+  text-decoration: none;
+  white-space: nowrap;
 }
+
+.logo:hover {
+  color: var(--gold);
+}
+
+
+/* Navigation list */
+
+header nav > ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  gap: 3px;
+
+  list-style: none;
+}
+
+header nav > ul > li {
+  position: relative;
+}
+
+
+/* Navigation links */
 
 header nav ul li a {
   display: block;
+
+  padding: 22px 13px;
+
   color: var(--white);
-  text-decoration: none;
+
+  font-size: 13px;
   font-weight: 600;
-  font-size: 14px;
-  padding: 22px 15px;
-  font-family: 'Montserrat', sans-serif;
+
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 header nav ul li a:hover {
@@ -84,54 +205,119 @@ header nav ul li a:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Dropdown */
-.dropdown-content {
+
+/* =========================================================
+   HAMBURGER
+========================================================= */
+
+.menu-toggle {
   display: none;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  color: var(--white);
+  background: transparent;
+
+  border: none;
+
+  font-size: 30px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.menu-toggle:hover {
+  color: var(--gold);
+}
+
+
+/* =========================================================
+   DROPDOWN
+========================================================= */
+
+.dropdown-content {
   position: absolute;
+
   top: 64px;
   left: 0;
+
+  display: none;
+
   min-width: 210px;
-  background: var(--maroon);
-  border-top: 3px solid var(--gold);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  border-radius: 0 0 6px 6px;
+
   padding: 8px 0;
+
+  list-style: none;
+
+  background: var(--maroon);
+
+  border-top: 3px solid var(--gold);
+
+  border-radius: 0 0 6px 6px;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .dropdown-content li {
   width: 100%;
-  margin: 0;
 }
 
 .dropdown-content li a {
   padding: 12px 18px;
-  white-space: nowrap;
 }
 
 .dropdown-content li a:hover {
-  background: var(--gold);
   color: var(--maroon);
+  background: var(--gold);
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
+
+/* Desktop dropdown */
+
+@media (min-width: 769px) {
+
+  .dropdown:hover > .dropdown-content,
+  .dropdown:focus-within > .dropdown-content {
+    display: block;
+  }
+
 }
 
-/* =========================
-   HERO SECTION
-========================= */
+
+/* =========================================================
+   HERO
+========================================================= */
+
 .hero {
   position: relative;
-  margin-top: 64px;
+
+  width: 100%;
   min-height: 570px;
+
+  margin-top: var(--nav-height);
+
   overflow: hidden;
+
   background: var(--dark-maroon);
 }
 
+
+/* Hero overlay */
+
 .hero::after {
   content: "";
+
   position: absolute;
   inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
   background:
     linear-gradient(
       90deg,
@@ -139,174 +325,322 @@ header nav ul li a:hover {
       rgba(80, 0, 0, 0.38),
       rgba(0, 0, 0, 0.28)
     );
-  z-index: 1;
 }
 
-.slides,
+
+/* Slideshow */
+
+.slides {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
 .slides img {
+  display: none;
+
   width: 100%;
   height: 570px;
+
+  object-fit: cover;
+  object-position: center;
 }
 
-.slides img {
-  object-fit: cover;
-  display: none;
+.slides img.active {
+  display: block;
 }
+
+
+/* Hero text */
 
 .hero-text {
   position: absolute;
-  z-index: 2;
+
   top: 50%;
   left: 50%;
+
+  z-index: 2;
+
   width: min(90%, 850px);
-  transform: translate(-50%, -50%);
-  text-align: center;
+
   color: var(--white);
-  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+
+  text-align: center;
+
+  transform:
+    translate(-50%, -50%);
+
+  text-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.6);
 }
+
+
+/* Welcome text */
 
 .hero-text::before {
   content: "WELCOME TO KAPENGURIA SCHOOL";
+
   display: block;
+
+  margin-bottom: 18px;
+
   color: var(--gold);
+
   font-size: 14px;
   font-weight: 700;
+
   letter-spacing: 3px;
-  margin-bottom: 18px;
 }
 
+
+/* Hero heading */
+
 .hero-text h1 {
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(42px, 7vw, 78px);
-  line-height: 1.05;
   margin-bottom: 18px;
+
+  font-family: 'Oswald', sans-serif;
+
+  font-size: clamp(42px, 7vw, 78px);
+
+  line-height: 1.05;
+
   text-transform: uppercase;
 }
+
+
+/* Hero paragraph */
 
 .hero-text p {
   font-size: clamp(18px, 2.5vw, 26px);
   font-weight: 500;
 }
 
+
+/* Hero button */
+
 .hero-text button {
+  min-height: 48px;
+
   margin-top: 30px;
+
   padding: 14px 30px;
+
+  color: var(--dark-maroon);
+
   background: var(--gold);
+
   border: 2px solid var(--gold);
   border-radius: 5px;
+
   font-weight: 700;
-  cursor: pointer;
-  color: var(--dark-maroon);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: 0.3s ease;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.2);
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
 .hero-text button:hover {
-  background: transparent;
   color: var(--white);
-  transform: translateY(-3px);
+  background: transparent;
+
+  transform:
+    translateY(-3px);
 }
 
-/* =========================
+
+/* =========================================================
    ANNOUNCEMENTS
-========================= */
+========================================================= */
+
 .ticker {
-  background: var(--gold);
-  color: var(--dark-maroon);
-  font-weight: 700;
+  position: relative;
+
+  z-index: 3;
+
+  width: 100%;
+
   overflow: hidden;
-  white-space: nowrap;
+
   padding: 13px 10px;
+
+  color: var(--dark-maroon);
+
+  background: var(--gold);
+
+  font-weight: 700;
+
   text-align: center;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.12);
 }
 
 .ticker-text {
   display: inline-block;
+
+  max-width: 100%;
+
   will-change: transform;
 }
 
-/* =========================
+
+/* =========================================================
    CONTENT CARDS
-========================= */
+========================================================= */
+
 .card {
-  background: var(--white);
-  margin: 38px auto;
-  padding: 32px;
+  width: calc(100% - 36px);
+
   max-width: 1000px;
-  border-radius: 12px;
+
+  margin: 38px auto;
+
+  padding: 32px;
+
+  background: var(--white);
+
   border-left: 5px solid var(--gold);
+
+  border-radius: 12px;
+
   box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.13);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.13);
+
+  transform:
+    translateY(-5px);
 }
 
 .card h2 {
-  color: var(--maroon);
   margin-bottom: 12px;
+
+  color: var(--maroon);
+
   font-family: 'Oswald', sans-serif;
+
   font-size: 28px;
+
+  line-height: 1.25;
 }
 
 .card p {
   color: var(--muted);
+
+  font-size: 16px;
+
+  line-height: 1.7;
 }
 
-/* =========================
+
+/* =========================================================
    GALLERY
-========================= */
+========================================================= */
+
 .gallery {
-  margin: 70px auto;
+  width: 100%;
+
   max-width: 1200px;
+
+  margin: 70px auto;
+
   padding: 0 25px;
 }
 
 .gallery h2 {
-  font-size: 34px;
   margin-bottom: 25px;
-  color: var(--maroon);
-  border-left: 6px solid var(--gold);
+
   padding-left: 14px;
+
+  color: var(--maroon);
+
+  border-left: 6px solid var(--gold);
+
   font-family: 'Oswald', sans-serif;
+
+  font-size: 34px;
+
+  line-height: 1.25;
 }
+
+
+/* Gallery grid */
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
   gap: 22px;
 }
 
+
+/* Gallery images */
+
 .gallery-grid img {
   width: 100%;
+
   height: 230px;
+
   object-fit: cover;
+
   border-radius: 10px;
-  box-shadow: var(--shadow);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+
   cursor: pointer;
+
+  box-shadow: var(--shadow);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .gallery-grid img:hover {
-  transform: scale(1.04);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.2);
+
+  transform:
+    scale(1.04);
 }
 
-/* =========================
+
+/* =========================================================
    LIGHTBOX
-========================= */
+========================================================= */
+
 .lightbox {
-  display: none;
   position: fixed;
-  z-index: 2000;
+
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
-  justify-content: center;
+
+  z-index: 2000;
+
+  display: none;
+
   align-items: center;
+  justify-content: center;
+
   padding: 30px;
+
+  background:
+    rgba(0, 0, 0, 0.9);
 }
 
 .lightbox:target {
@@ -316,116 +650,667 @@ header nav ul li a:hover {
 .lightbox img {
   max-width: 90%;
   max-height: 82%;
+
   border: 4px solid var(--gold);
+
   border-radius: 10px;
 }
 
 .lightbox-close {
   position: absolute;
+
   top: 20px;
   right: 30px;
+
   color: var(--gold);
+
   font-size: 42px;
-  text-decoration: none;
   font-weight: bold;
+
+  text-decoration: none;
 }
 
-/* =========================
+
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
+
 footer {
-  background: linear-gradient(135deg, #520000, #800000);
-  color: var(--white);
-  text-align: center;
-  padding: 38px 20px;
+  width: 100%;
+
   margin-top: 80px;
+
+  padding: 38px 20px;
+
+  color: var(--white);
+
+  background:
+    linear-gradient(
+      135deg,
+      #520000,
+      #800000
+    );
+
+  text-align: center;
 }
 
 footer p {
   margin: 8px 0;
+
+  overflow-wrap: anywhere;
 }
 
 footer p strong {
   color: var(--gold);
 }
 
-/* =========================
-   RESPONSIVE DESIGN
-========================= */
-@media (max-width: 900px) {
-  header nav ul li a {
-    padding: 18px 8px;
-    font-size: 12px;
-  }
 
-  .hero-text h1 {
-    font-size: 52px;
-  }
-}
+/* =========================================================
+   TABLETS
+========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1050px) {
+
   header nav {
-    position: relative;
-  }
-
-  header nav ul {
-    flex-direction: column;
-    padding: 8px 0;
-  }
-
-  header nav ul li {
-    width: 100%;
-    text-align: center;
-  }
-
-  header nav ul li a {
-    padding: 10px;
-  }
-
-  .dropdown-content {
-    position: static;
-    width: 100%;
-    box-shadow: none;
-  }
-
-  .hero {
-    margin-top: 0;
-    min-height: 480px;
-  }
-
-  .slides,
-  .slides img {
-    height: 480px;
-  }
-
-  .hero-text h1 {
-    font-size: 42px;
-  }
-
-  .hero-text p {
-    font-size: 18px;
-  }
-
-  .card {
-    margin: 25px 18px;
-    padding: 25px 20px;
-  }
-
-  .gallery {
-    margin: 45px auto;
     padding: 0 18px;
   }
 
-  .gallery h2 {
-    font-size: 29px;
+  header nav > ul {
+    gap: 0;
   }
+
+  header nav ul li a {
+    padding: 22px 8px;
+
+    font-size: 11px;
+  }
+
+  .hero-text h1 {
+    font-size: 58px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE DEVICES
+========================================================= */
+
+@media (max-width: 768px) {
+
+  :root {
+    --nav-height: 60px;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE NAV
+  ----------------------------------------- */
+
+  header nav {
+    min-height: var(--nav-height);
+
+    padding:
+      0 14px;
+
+    justify-content: flex-end;
+  }
+
+
+  /* Show logo */
+
+  .logo {
+    display: block;
+
+    margin-right: auto;
+
+    max-width: calc(100% - 60px);
+
+    overflow: hidden;
+
+    font-size: 18px;
+
+    text-overflow: ellipsis;
+  }
+
+
+  /* Show hamburger */
+
+  .menu-toggle {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+  }
+
+
+  /* Mobile navigation menu */
+
+  header nav > ul {
+    position: absolute;
+
+    top: var(--nav-height);
+    left: 0;
+
+    display: none;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    width: 100%;
+
+    max-height:
+      calc(100vh - var(--nav-height));
+
+    padding: 8px 0;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background:
+      rgba(128, 0, 0, 0.99);
+
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+
+
+  /* Open menu */
+
+  header nav > ul.active {
+    display: flex;
+  }
+
+
+  /* Menu items */
+
+  header nav > ul > li {
+    width: 100%;
+
+    text-align: left;
+  }
+
+
+  /* Menu links */
+
+  header nav ul li a {
+    display: block;
+
+    width: 100%;
+
+    min-height: 46px;
+
+    padding:
+      13px 20px;
+
+    font-size: 15px;
+
+    white-space: normal;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE DROPDOWNS
+  ----------------------------------------- */
+
+  .dropdown-content {
+    position: static;
+
+    display: none;
+
+    width: 100%;
+
+    min-width: 0;
+
+    padding: 0;
+
+    background:
+      rgba(82, 0, 0, 0.98);
+
+    border: none;
+
+    border-radius: 0;
+
+    box-shadow: none;
+  }
+
+
+  /* Prevent desktop hover behavior */
+
+  .dropdown:hover > .dropdown-content,
+  .dropdown:focus-within > .dropdown-content {
+    display: none;
+  }
+
+
+  /* Open dropdown */
+
+  .dropdown.open > .dropdown-content {
+    display: block;
+  }
+
+
+  /* Dropdown links */
+
+  .dropdown-content li a {
+    min-height: 44px;
+
+    padding:
+      11px 38px;
+
+    font-size: 14px;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE HERO
+  ----------------------------------------- */
+
+  .hero {
+    min-height: 520px;
+
+    margin-top: var(--nav-height);
+  }
+
+
+  .slides {
+    width: 100%;
+    height: 520px;
+  }
+
+
+  .slides img {
+    width: 100%;
+    height: 520px;
+
+    object-fit: cover;
+
+    object-position: center;
+  }
+
+
+  /* Hero text */
+
+  .hero-text {
+    top: 52%;
+
+    width:
+      calc(100% - 30px);
+
+    max-width: 650px;
+  }
+
+
+  .hero-text::before {
+    margin-bottom: 15px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .hero-text h1 {
+    margin-bottom: 15px;
+
+    font-size:
+      clamp(38px, 12vw, 58px);
+
+    line-height: 1.05;
+  }
+
+
+  .hero-text p {
+    font-size: 17px;
+
+    line-height: 1.4;
+  }
+
+
+  .hero-text button {
+    min-height: 48px;
+
+    margin-top: 24px;
+
+    padding:
+      13px 30px;
+
+    font-size: 15px;
+  }
+
+
+  /* -----------------------------------------
+     ANNOUNCEMENT
+  ----------------------------------------- */
+
+  .ticker {
+    padding:
+      12px 8px;
+
+    font-size: 13px;
+  }
+
+
+  /* -----------------------------------------
+     CARDS
+  ----------------------------------------- */
+
+  .card {
+    width:
+      calc(100% - 30px);
+
+    margin:
+      25px auto;
+
+    padding:
+      22px 18px;
+  }
+
+
+  .card h2 {
+    font-size: 25px;
+  }
+
+
+  .card p {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+
+  /* -----------------------------------------
+     GALLERY
+  ----------------------------------------- */
+
+  .gallery {
+    width: 100%;
+
+    margin:
+      45px auto;
+
+    padding:
+      0 15px;
+  }
+
+
+  .gallery h2 {
+    margin-bottom: 20px;
+
+    font-size: 28px;
+  }
+
 
   .gallery-grid {
     grid-template-columns: 1fr;
+
+    gap: 15px;
   }
+
 
   .gallery-grid img {
-    height: 240px;
+    width: 100%;
+
+    height: 220px;
+
+    border-radius: 10px;
   }
+
+
+  /* -----------------------------------------
+     FOOTER
+  ----------------------------------------- */
+
+  footer {
+    margin-top: 50px;
+
+    padding:
+      30px 15px;
+
+    font-size: 14px;
+  }
+
+
+  footer p {
+    line-height: 1.6;
+  }
+
 }
 
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .logo {
+    font-size: 17px;
+  }
+
+
+  .menu-toggle {
+    width: 44px;
+    height: 44px;
+
+    font-size: 27px;
+  }
+
+
+  .hero {
+    min-height: 470px;
+  }
+
+
+  .slides {
+    height: 470px;
+  }
+
+
+  .slides img {
+    height: 470px;
+  }
+
+
+  .hero-text {
+    width:
+      calc(100% - 24px);
+  }
+
+
+  .hero-text::before {
+    margin-bottom: 12px;
+
+    font-size: 10px;
+
+    letter-spacing:
+      1.5px;
+  }
+
+
+  .hero-text h1 {
+    font-size:
+      clamp(32px, 11vw, 44px);
+  }
+
+
+  .hero-text p {
+    font-size: 15px;
+  }
+
+
+  .hero-text button {
+    width: 100%;
+
+    max-width: 220px;
+
+    padding:
+      12px 20px;
+  }
+
+
+  .card {
+    width:
+      calc(100% - 24px);
+
+    padding:
+      20px 16px;
+  }
+
+
+  .card h2 {
+    font-size: 22px;
+  }
+
+
+  .gallery {
+    padding:
+      0 12px;
+  }
+
+
+  .gallery h2 {
+    font-size: 25px;
+  }
+
+
+  .gallery-grid img {
+    height: 210px;
+  }
+
+
+  footer {
+    padding:
+      28px 14px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .logo {
+    font-size: 16px;
+  }
+
+
+  .menu-toggle {
+    font-size: 24px;
+  }
+
+
+  .hero {
+    min-height: 430px;
+  }
+
+
+  .slides,
+  .slides img {
+    height: 430px;
+  }
+
+
+  .hero-text {
+    width:
+      calc(100% - 20px);
+  }
+
+
+  .hero-text::before {
+    font-size: 9px;
+
+    letter-spacing:
+      1px;
+  }
+
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+
+
+  .hero-text p {
+    font-size: 14px;
+  }
+
+
+  .hero-text button {
+    max-width: 200px;
+
+    padding:
+      11px 18px;
+
+    font-size: 14px;
+  }
+
+
+  .card {
+    width:
+      calc(100% - 20px);
+
+    padding:
+      18px 14px;
+  }
+
+
+  .card h2 {
+    font-size: 20px;
+  }
+
+
+  .card p {
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (pointer: coarse) {
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+
+  header nav ul li a,
+  .menu-toggle,
+  .hero-text button {
+    min-height: 44px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+
+}
