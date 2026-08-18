@@ -1,3 +1,13 @@
+# =========================================================
+# KAPENGURIA SENIOR SCHOOL
+# Robots.txt
+# =========================================================
+
+# Allow all legitimate search engine crawlers
 User-agent: *
+
+# Allow crawling of the entire website
 Allow: /
+
+# Sitemap location
 Sitemap: https://lewiskkoech-afk.github.io/KAPENGURIA-SENIOR-SCHOOL-WEBSITE/sitemap.xml
